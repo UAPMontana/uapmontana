@@ -1,0 +1,67 @@
+{
+ "built": "2026-10-27T16:39-06:00",
+ "by_source": {
+  "NUFORC": {
+   "count": 1001,
+   "min": "1865-06-30",
+   "max": "2023-12-02",
+   "geocoded": 957
+  },
+  "Enigma": {
+   "count": 1,
+   "min": "2023-07-11",
+   "max": "2023-07-11",
+   "geocoded": 1
+  }
+ },
+ "enigma_statewide": {
+  "url": "https://enigmalabs.io/explore/united-states/montana",
+  "checked": "2026-10-27",
+  "first_hand_reports": 219,
+  "total_published_incl_third_party": 1682,
+  "coverage": "Jan 2018 - now",
+  "top_cities": [
+   [
+    "Missoula",
+    147
+   ],
+   [
+    "Billings",
+    133
+   ],
+   [
+    "Bozeman",
+    112
+   ]
+  ],
+  "top_shapes": [
+   [
+    "Light",
+    542
+   ],
+   [
+    "Circle",
+    203
+   ],
+   [
+    "Other",
+    134
+   ],
+   [
+    "Triangle",
+    118
+   ],
+   [
+    "Sphere",
+    108
+   ]
+  ]
+ },
+ "log": [
+  "NUFORC snapshot: 1001 MT reports from nuforc_reports.jsonl",
+  "NUFORC live MT index BLOCKED for scripts (HTTPError); 2024+ reports need manual export or NUFORC permission",
+  "MUFON Last-20 public page: 21 rows scanned, 0 new MT cases (cache total 0)",
+  "Enigma: 1 individually confirmed MT sightings; statewide page blocks scripts (Cloudflare)",
+  "Dropped 0 rows with unparseable dates"
+ ]
+}

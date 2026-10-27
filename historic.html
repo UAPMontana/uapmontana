@@ -1,0 +1,6 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Historic cases: UAP Montana</title><link rel="stylesheet" href="style.css"></head><body>
+<main><h1>Historic Montana cases</h1><p class="mut">Notable, publicly documented cases. Each lists its sources; several remain disputed, and the summaries note the official or skeptical explanations where they exist.</p><div id="h"></div>
+<p class="mut">Older witness reports (back to the 1940s and earlier) are also in the <a href="reports.html">reports list</a>; set the year range to see them.</p></main>
+<script src="common.js"></script><script>
+j('data/historic.json').then(h=>{document.getElementById('h').innerHTML=h.map(x=>`<div class="card" id="${esc(x.id)}"><h3>${esc(x.title)}</h3><div class="mut">${esc(x.date)} · ${esc(x.city)} · <a href="map.html">map</a></div><p>${esc(x.summary)}</p><b>Sources</b><ul>${x.sources.map(s=>`<li><a href="${safeUrl(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a></li>`).join('')}</ul></div>`).join(''));setTimeout(()=>{location.hash&&document.getElementById(location.hash.slice(1))?.scrollIntoView()},0)});
+</script></body></html>

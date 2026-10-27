@@ -1,0 +1,10 @@
+:root{--bg:#0b1020;--fg:#e8ecf5;--mut:#9aa6c0;--acc:#7cc4ff;--card:#141b31}
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,sans-serif;background:var(--bg);color:var(--fg)}
+a{color:var(--acc)}header{background:#070b17;padding:12px 20px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+header b{font-size:20px}header nav a{margin-right:14px;text-decoration:none}main{max-width:1100px;margin:auto;padding:20px}
+.card{background:var(--card);border-radius:10px;padding:16px;margin:12px 0}.mut{color:var(--mut);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+#map{height:72vh;border-radius:10px}table{width:100%;border-collapse:collapse;font-size:14px}
+td,th{padding:6px;border-bottom:1px solid #243052;text-align:left;vertical-align:top}
+input,select{background:#0f1630;color:var(--fg);border:1px solid #2a3760;border-radius:6px;padding:6px;margin:4px}
+.tag{font-size:12px;padding:1px 6px;border-radius:8px;background:#23305a}footer{color:var(--mut);font-size:13px;padding:20px;text-align:center}

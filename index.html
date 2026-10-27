@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>UAP Montana: public UAP/UFO reports from Montana</title><link rel="stylesheet" href="style.css"></head><body>
+<main><h1>UAP reports from Montana</h1>
+<p>A Montana-only index of publicly available UAP/UFO sighting reports from the National UFO Reporting Center (NUFORC), MUFON and Enigma Labs, plus well-documented historic cases. Every report links back to the organization that published it.</p>
+<div class="grid" id="stats"></div>
+<div class="card"><h3>Latest reports</h3><table id="latest"></table><p><a href="reports.html">All reports →</a> · <a href="map.html">Map →</a></p></div>
+<div class="card"><h3>Coverage notes</h3><ul id="notes"></ul><p class="mut" id="built"></p></div>
+</main><script src="common.js"></script><script>
+(async()=>{const m=await j('data/meta.json'),r=await j('data/reports.json');
+const S=m.by_source,st=document.getElementById('stats');
+for(const k in S)st.insertAdjacentHTML('beforeend',`<div class="card"><div class="mut">${esc(k)} reports indexed</div><div style="font-size:30px">${esc(S[k].count)}</div><div class="mut">${esc(S[k].min)} → ${esc(S[k].max)}</div></div>`);
+const e=m.enigma_statewide;st.insertAdjacentHTML('beforeend',`<div class="card"><div class="mut">Enigma Labs statewide (their count)</div><div style="font-size:30px">${esc(e.total_published_incl_third_party)}</div><div class="mut">${esc(e.first_hand_reports)} first-hand · ${esc(e.coverage)} · <a href="${safeUrl(e.url)}" target="_blank" rel="noopener">browse on Enigma</a></div></div>`);
+document.getElementById('latest').innerHTML='<tr><th>Date</th><th>Place</th><th>Source</th><th>Summary</th></tr>'+r.slice(0,10).map(x=>`<tr><td>${esc(x.date)}</td><td>${esc(x.city)}</td><td><span class="tag">${esc(x.source)}</span></td><td>${esc(x.summary)} <a href="${safeUrl(x.url)}" target="_blank" rel="noopener">original</a></td></tr>`).join('');
+document.getElementById('notes').innerHTML=['NUFORC reports come from a public snapshot of nuforc.org (through Dec 2023). Newer NUFORC reports are on <a href="https://nuforc.org/subndx/?id=lMT" target="_blank" rel="noopener">NUFORC\'s Montana index</a>.','MUFON case files are member-only; this site lists only Montana cases MUFON shows on its public <a href="https://mufoncms.com/last_20_public.html" target="_blank" rel="noopener">Last 20 reports</a> page.','Enigma Labs: individually confirmed sightings are listed; browse all Montana sightings on <a href="https://enigmalabs.io/explore/united-states/montana" target="_blank" rel="noopener">Enigma\'s Montana page</a>.'].map(s=>`<li>${s}</li>`).join('');
+document.getElementById('built').textContent='Data built '+m.built;})();
+</script></body></html>

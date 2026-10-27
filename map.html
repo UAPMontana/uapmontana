@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Map: UAP Montana</title><link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css">
+<style>.leaflet-popup-content{color:#111}.leaflet-popup-content a{color:#0645ad}</style></head><body>
+<main><h1>Montana UAP report map</h1>
+<p class="mut">Pins are placed at the reported city or town, not the exact spot. Click a pin for the summary and a link to the original report. ★ = historic case.</p>
+<div><label><input type="checkbox" class="src" value="NUFORC" checked> NUFORC</label><label><input type="checkbox" class="src" value="MUFON" checked> MUFON</label><label><input type="checkbox" class="src" value="Enigma" checked> Enigma</label><label><input type="checkbox" id="hist" checked> Historic</label>
+ From <input id="y0" type="number" value="1860" style="width:80px"> to <input id="y1" type="number" value="2100" style="width:80px"> <span id="n" class="mut"></span></div>
+<div id="map"></div></main>
+<script src="common.js"></script><script src="vendor/leaflet.js"></script><script src="vendor/leaflet.markercluster.js"></script>
+<script>
+const map=L.map('map').fitBounds([[44.36,-116.05],[49.0,-104.04]]);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+const col={NUFORC:'#2b8cff',MUFON:'#ff8c2b',Enigma:'#b14cff'};let R=[],H=[],layer=L.markerClusterGroup({maxClusterRadius:40,chunkedLoading:true}).addTo(map),hl=L.layerGroup().addTo(map);
+function draw(){layer.clearLayers();hl.clearLayers();const A=[];const on=[...document.querySelectorAll('.src:checked')].map(e=>e.value),y0=+y0e.value,y1=+y1e.value;let n=0;
+for(const r of R){const y=+r.date.slice(0,4);if(r.lat==null||!on.includes(r.source)||y<y0||y>y1)continue;n++;
+ const m=L.circleMarker([r.lat,r.lon],{radius:6,color:col[r.source],fillOpacity:.8}).bindPopup(`<b>${esc(r.date)} · ${esc(r.city)}</b><br>${esc(r.shape)} ${r.duration?'· '+esc(r.duration):''}<br>${esc(r.summary)}<br><a href="${safeUrl(r.url)}" target="_blank" rel="noopener">Open original ${esc(r.source)} report →</a>`);A.push(m)}layer.addLayers(A);
+if(document.getElementById('hist').checked)for(const h of H){if(h.lat==null)continue;n++;
+ L.marker([h.lat,h.lon],{icon:L.divIcon({html:'<div style="font-size:26px;color:gold;text-shadow:0 0 3px #000;line-height:26px">★</div>',className:'',iconSize:[26,26]})}).bindPopup(`<b>${esc(h.date)} · ${esc(h.title)}</b><br>${esc(h.summary)}<br>${h.sources.map(s=>`<a href="${safeUrl(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a>`).join('<br>')}<br><a href="historic.html#${esc(h.id)}">Historic cases page →</a>`).addTo(hl)}
+document.getElementById('n').textContent=n+' shown'}
+const y0e=document.getElementById('y0'),y1e=document.getElementById('y1');
+document.querySelectorAll('input').forEach(e=>e.addEventListener('change',draw));
+Promise.all([j('data/reports.json'),j('data/historic.json')]).then(([r,h])=>{R=r;H=h;draw()});
+</script></body></html>

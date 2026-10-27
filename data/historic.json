@@ -1,0 +1,59 @@
+[
+ {
+  "id": "hist-1950-mariana",
+  "date": "1950-08-15",
+  "city": "Great Falls",
+  "title": "Mariana film, Great Falls",
+  "summary": "Great Falls Electrics baseball team's manager filmed two bright objects over Great Falls, one of the earliest motion pictures of what would be called UFOs. The Air Force first attributed it to sun glints off two F-94 jets, later retracted that, then endorsed it again; later investigations were inconclusive.",
+  "sources": [
+   [
+    "Wikipedia: Mariana UFO incident",
+    "https://en.wikipedia.org/wiki/Mariana_UFO_incident"
+   ]
+  ],
+  "lat": 47.5,
+  "lon": -111.301
+ },
+ {
+  "id": "hist-1967-malmstrom",
+  "date": "1967-03-16",
+  "city": "Hilger",
+  "title": "Malmstrom AFB Echo & Oscar Flight missile incidents, March 1967",
+  "summary": "On 16 Mar 1967 all ten Minuteman missiles of Malmstrom's Echo Flight (launch facility between Hilger and Winifred) went off alert. A former launch officer later described UFOs over the Oscar Flight capsule and missiles dropping offline. The Air Force and skeptics attribute the Echo shutdown to an electronic or power failure (an EMP-test explanation is also cited) and dispute any Oscar Flight shutdown. Disputed case.",
+  "sources": [
+   [
+    "Wikipedia: Malmstrom UFO incident",
+    "https://en.wikipedia.org/wiki/Malmstrom_UFO_incident"
+   ],
+   [
+    "Wikipedia: Robert Salas",
+    "https://en.wikipedia.org/wiki/Robert_Salas"
+   ]
+  ],
+  "lat": 47.254,
+  "lon": -109.36
+ },
+ {
+  "id": "hist-1975-malmstrom",
+  "date": "1975-11-07",
+  "city": "Lewistown",
+  "title": "Malmstrom / Lewistown radar-visual sightings, Nov 1975",
+  "summary": "On 7-8 Nov 1975 NORAD logs record unknown radar tracks over the Malmstrom missile field near Lewistown, visual reports from missile-site security teams (lights, jet sounds), and two F-106s scrambled from Great Falls that made no contact. Part of the fall-1975 northern-tier base overflight wave. Records released under FOIA.",
+  "sources": [
+   [
+    "NICAP: Malmstrom 1975 FOIA file (NORAD logs)",
+    "https://www.nicap.org/foia_002.htm"
+   ],
+   [
+    "NMCC Memorandum for Record, 8 Nov 1975 (PDF)",
+    "https://www.nicap.org/NMCCdocs751108.pdf"
+   ],
+   [
+    "The Black Vault: UFOs over Malmstrom AFB, Nov 1975",
+    "https://www.theblackvault.com/documentarchive/unidentified-flying-objects-over-malmstrom-afb-november-1975/"
+   ]
+  ],
+  "lat": 47.062,
+  "lon": -109.428
+ }
+]

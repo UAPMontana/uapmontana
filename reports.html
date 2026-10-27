@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Reports: UAP Montana</title><link rel="stylesheet" href="style.css"></head><body>
+<main><h1>All Montana reports</h1>
+<div class="card"><input id="q" placeholder="Search text or town" size="28"><select id="src"><option value="">All sources</option><option>NUFORC</option><option>MUFON</option><option>Enigma</option></select><select id="shape"><option value="">All shapes</option></select>
+From <input id="y0" type="number" value="1860" style="width:80px"> to <input id="y1" type="number" value="2100" style="width:80px"> <span id="n" class="mut"></span> · <a href="data/reports.csv">Download CSV</a></div>
+<table id="t"></table><p><button id="more">Show more</button></p></main>
+<script src="common.js"></script><script>
+let R=[],lim=200;const $=id=>document.getElementById(id);
+function draw(){const q=$('q').value.toLowerCase(),s=$('src').value,sh=$('shape').value,y0=+$('y0').value,y1=+$('y1').value;
+const f=R.filter(r=>(!s||r.source===s)&&(!sh||r.shape===sh)&&+r.date.slice(0,4)>=y0&&+r.date.slice(0,4)<=y1&&(!q||(r.city+' '+r.summary).toLowerCase().includes(q)));
+$('n').textContent=f.length+' reports';
+$('t').innerHTML='<tr><th>Date</th><th>Place</th><th>Shape</th><th>Duration</th><th>Source</th><th>Summary</th></tr>'+f.slice(0,lim).map(x=>`<tr><td>${esc(x.date)}</td><td>${esc(x.city)}</td><td>${esc(x.shape)}</td><td>${esc(x.duration)}</td><td><span class="tag">${esc(x.source)}</span></td><td>${esc(x.summary)} <a href="${safeUrl(x.url)}" target="_blank" rel="noopener">original</a></td></tr>`).join('');
+$('more').style.display=f.length>lim?'':'none'}
+$('more').onclick=()=>{lim+=200;draw()};['q','src','shape','y0','y1'].forEach(i=>$(i).addEventListener('input',draw));
+j('data/reports.json').then(r=>{R=r;[...new Set(r.map(x=>x.shape).filter(Boolean))].sort().forEach(s=>$('shape').insertAdjacentHTML('beforeend',`<option>${esc(s)}</option>`));draw()});
+</script></body></html>
